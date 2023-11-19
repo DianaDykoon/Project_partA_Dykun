@@ -6,7 +6,7 @@ namespace Project_partA_Dykun
     {
         private string? _address;
         public List<Book> Books;
-        private Librarian _librarian;
+        private Librarian _librarian; // List
 
         public string Address
         {

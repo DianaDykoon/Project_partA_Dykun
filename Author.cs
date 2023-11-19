@@ -6,7 +6,7 @@ namespace Project_partA_Dykun
     {
         private string? _firstName;
         private string? _lastName;
-        private int _age;
+        //private int _age;
         private string? _pseudonym;
         private string? _nationality;
         private int _fee;
@@ -21,11 +21,11 @@ namespace Project_partA_Dykun
             get => throw new NotImplementedException();
             set => throw new NotImplementedException();
         }
-        public int Age
-        {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
-        }
+        //public int Age
+        //{
+        //    get => throw new NotImplementedException();
+        //    set => throw new NotImplementedException();
+        //}
 
         public string Pseudonym
         {
@@ -46,6 +46,11 @@ namespace Project_partA_Dykun
         }
 
         public string FullName => throw new NotImplementedException();
+
+        public int Id => throw new NotImplementedException();
+
+        public string MiddleName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DateTime Birth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Author()
         {
