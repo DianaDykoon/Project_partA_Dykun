@@ -1,16 +1,23 @@
 ﻿using Project_Part_B;
-using System.ComponentModel.DataAnnotations;
 
 namespace Project_partB_Dykun
 {
-    public class Book : Publication
+    public class Magazine : Publication, ICloneable
     {
+        private int _issueNumber;
+
+        public int IssueNumber
+        {
+            get { return _issueNumber; }
+            set { _issueNumber = value; }
+        }
+
         private int _numberOfPages;
         private Genre _genre;
         private string _title;
         private Publisher _publisher;
         private int _yearOfWriting;
-        private Author _author;
+        private Author _author; // !!!
 
         public override int NumberOfPages
         {
@@ -50,7 +57,7 @@ namespace Project_partB_Dykun
 
         public override int YearOfWriting
         {
-           
+
             get { return _yearOfWriting; }
             set
             {
@@ -68,8 +75,8 @@ namespace Project_partB_Dykun
             set { _author = value; }
         }
 
-        public Book(int numberOfPages, Genre genre, string title,
-            Publisher publisher, int yearOfWriting, Author author) // агрегація
+        public Magazine(int numberOfPages, Genre genre, string title,
+            Publisher publisher, int yearOfWriting, Author author, int issueNumber)
         {
             _numberOfPages = numberOfPages;
             _genre = genre;
@@ -77,18 +84,16 @@ namespace Project_partB_Dykun
             _publisher = publisher;
             _yearOfWriting = yearOfWriting;
             _author = author;
+            _issueNumber = issueNumber;
         }
+
+        public object Clone() => MemberwiseClone(); // поверхневе копіювання
 
         public override string DisplayInfo()
         {
             return $"Автор: {Author.Pseudonym}, Назва: {Title}, " +
-                $"Видавництво: {Publisher}, Жанр: {Genre}, Сторiнок: {NumberOfPages}, " +
-                $"Рiк видання: {YearOfWriting}";
-        }
-        // !!
-        public override string ToString()
-        {
-            return DisplayInfo();
+                $" Номер випуску: {_issueNumber}, Видавництво: {Publisher}, " +
+                $"Жанр: {Genre}, Сторiнок: {NumberOfPages}, Рiк видання: {YearOfWriting}";
         }
     }
 }

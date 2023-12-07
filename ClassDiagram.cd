@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project_Part_B.Author">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABECAkAAAAIQAIAEAEFQAIAAAAAIAAAAAAAACAAACAg=</HashCode>
+      <FileName>Author.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.683" />
+  </Class>
+  <Class Name="Project_partB_Dykun.Book">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAABAIEAEEAEiAIQABAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Part_B.Librarian">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEDAmAAAAIAAIAEAEFQQIAAAAAAAAAAAAAAAAQAAAg=</HashCode>
+      <FileName>Librarian.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.6" />
+  </Class>
+  <Class Name="Project_partB_Dykun.Library">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAAAAAAEAABAkACAAAAQAiAAAAAgCAgAEAGAAAAA=</HashCode>
+      <FileName>Library.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_partB_Dykun.Publication">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAEEAAiAIAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Publication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_partB_Dykun.Magazine">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAABAIEAEEAAiAIQABAAAAAAQAQAAAAAACAAABA=</HashCode>
+      <FileName>Magazine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1" />
+  </Class>
+  <Interface Name="Project_partB_Dykun.IPerson">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAkAAAAAAAIAEAAAQAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>IPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project_partB_Dykun.ILibrary">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAEACAAAAQAAAAAAAACAgAEAAAAAAA=</HashCode>
+      <FileName>ILibrary.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

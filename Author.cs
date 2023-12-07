@@ -1,59 +1,129 @@
-﻿
+﻿using Project_partB_Dykun;
+using System.ComponentModel.DataAnnotations;
 
-namespace Project_partA_Dykun
+namespace Project_Part_B
 {
     public class Author : IPerson
     {
+        static int currentId = 1;
+        [Key]
+        private int _id;
+
         private string? _firstName;
+        private string? _middleName;
         private string? _lastName;
         private DateTime _birth;
         private string? _pseudonym;
         private string? _nationality;
 
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
         public string FirstName
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get { return _firstName; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _firstName = value;
+                }
+                else
+                    _firstName = "Iван";
+            }
+        }
+        public string MiddleName
+        {
+            get { return _middleName; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _middleName = value;
+                }
+                else
+                    _middleName = "Білий";
+            }
         }
         public string LastName
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get { return _lastName; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _lastName = value;
+                }
+                else
+                    _lastName = "";
+            }
+        }
+
+        public DateTime Birth
+        {
+            get { return _birth; }
+            set { _birth = value; }
+        }
+
+        public int Age
+        {
+            get
+            {
+                DateTime data = DateTime.Now;
+                int age = data.Year - Birth.Year;
+                return age;
+            }
         }
 
         public string Pseudonym
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get { return _pseudonym; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _pseudonym = value;
+                }
+                else
+                    _pseudonym = FullName;
+            }
         }
 
         public string Nationality
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get { return _nationality; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _nationality = value;
+                }
+                else
+                    _nationality = "Ukraine";
+            }
         }
 
-        public int Fee
+        public string FullName => _firstName + " " + _middleName + " " + _lastName;
+
+        public Author(string FirstName, string MiddleName, string LastName,
+            DateTime Birth, string Pseudonym, string Nationality)
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
-        }
-
-        public string FullName => throw new NotImplementedException();
-
-        public int Id => throw new NotImplementedException();
-
-        public string MiddleName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime Birth { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public Author()
-        {
-            throw new NotImplementedException();
+            _firstName = FirstName;
+            _middleName = MiddleName;
+            _lastName = LastName;
+            _birth = Birth;
+            _pseudonym = Pseudonym;
+            _nationality = Nationality;
+            Id = currentId++;
         }
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"Id = {Id}, Iм'я: {FullName}, Вiк: {Age}, " +
+                $"Псевдонiм: {Pseudonym}, Нацiональнiсть: {Nationality}";
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 
-namespace Project_partA_Dykun
+namespace Project_partB_Dykun
 {
     public enum Genre
     {
@@ -8,7 +8,7 @@ namespace Project_partA_Dykun
         History,
         Detective,
         Tragedy,
-        Comdey,
+        Comedy,
         Mystery,
         Thriller,
         Business

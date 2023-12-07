@@ -1,6 +1,6 @@
 ﻿
 
-namespace Project_partA_Dykun
+namespace Project_partB_Dykun
 {
     public enum Publisher
     {

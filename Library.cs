@@ -1,56 +1,114 @@
-﻿
+﻿using Project_Part_B;
+using System.Collections;
 
-namespace Project_partA_Dykun
+namespace Project_partB_Dykun
 {
-    public class Library : ILibrary
+    public class Library : ILibrary, IEnumerable
     {
         private string? _address;
-        public List<Book> Books;
-        private Librarian _librarian; // List
+        public List<Book> Books; // !!
+        public List<Magazine> Magazines; // !!
+        public List<Librarian> Librarians; 
+        public List<Publication> Publications;
+        private static int bookCounter;
+        private static int magazineCounter;
+
+        public static int BookCounter
+        {
+            get { return bookCounter; }
+        }
+
+        public static int MagazineCounter
+        {
+            get { return magazineCounter; }
+        }
 
         public string Address
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get { return _address; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                    _address = value;
+                else
+                    _address = "Kharkiv";
+            }
         }
 
-        public Librarian Librarian // асоціація
-        {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
-        }
-
-
-        public Library(string address, Librarian librarian) // агрегація
+        public Library(string address) // агрегація
         {
             _address = address;
-            _librarian = librarian;
+            Librarians = new List<Librarian>(); // композиція
             Books = new List<Book>(); // композиція
+            Magazines = new List<Magazine>(); // композиція
+            Publications = new List<Publication>(); // композиція
         }
 
-        public void AddBook(string title, Author author, int numberOfPages, Genre genre, int yearOfWriting, Publisher publisher)
+        public void AddBook(string title, Author author, int numberOfPages,
+            Genre genre, int yearOfWriting, Publisher publisher)
         {
-            throw new NotImplementedException();
+            Book book = new(numberOfPages, genre, title, publisher, yearOfWriting, author);
+            Publications.Add(book);
+            Books.Add(book);
+            bookCounter++;
         }
 
-        public Book GetBook(string title)
+        public void AddMagazine(string title, Author author, int numberOfPages,
+            Genre genre, int yearOfWriting, Publisher publisher, int isNumber)
         {
-            throw new NotImplementedException();
+            Magazine magazine = new(numberOfPages, genre, title, publisher, yearOfWriting, author, isNumber);
+            Publications.Add(magazine);
+            Magazines.Add(magazine);
+            magazineCounter++;
         }
 
-        public void RemoveBook(string title)
+        public bool RemoveBook(string title)
         {
-            throw new NotImplementedException();
+            if (!Books.Exists(p => p.Title == title))
+            {
+                return false;
+            }
+            else
+            {
+                int amount = Books.RemoveAll(deleteBook => deleteBook.Title == title);
+                Publications.RemoveAll(deleteBook => deleteBook.Title == title);
+                bookCounter -= amount;
+                return true;
+            }
         }
 
-        public List<Book> GetCatalog()
+        public bool RemoveMagazine(string title)
         {
-            throw new NotImplementedException();
+            if (!Magazines.Exists(p => p.Title == title))
+            {
+                return false;
+            }
+            else
+            {
+                int amount = Magazines.RemoveAll(deleteMagazine => deleteMagazine.Title == title);
+                Publications.RemoveAll(deleteMagazine => deleteMagazine.Title == title);
+                magazineCounter -= amount;
+                return true;
+            }
+        }
+
+        public string GetCatalog()
+        {
+            string str = "";
+            foreach (var publication in Publications)
+                str += publication.DisplayInfo() + "\n";
+            return str;
         }
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"Адреса бiблiотеки - {Address}, кiлькiсть книжок -" +
+                $" {BookCounter}, кiлькiсть журналiв - {MagazineCounter}";
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return Books.GetEnumerator();
         }
     }
 }
